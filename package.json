@@ -1,0 +1,32 @@
+{
+  "name": "fastify-typed-api",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "node --import tsx .",
+    "dev": "nodemon",
+    "generate:sdk": "swagger-typescript-api -p http://localhost:8000/schema -o ./sdk -n api.ts --axios --module-name-first-tag",
+    "test": "if [ -z \"$npm_config_name\" ]; then node --import tsx --test ./tests/*.ts; else node --import tsx --test-name-pattern=\"$npm_config_name\" --test ./tests/*.ts; fi"
+  },
+  "keywords": [],
+  "author": "Alessandro Montanari <alessandro.montanari@polarity.dev>",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@fastify/static": "^8.0.1",
+    "@fastify/swagger": "^9.1.0",
+    "@fastify/type-provider-json-schema-to-ts": "^4.0.0",
+    "fastify": "^5.0.0"
+  },
+  "devDependencies": {
+    "@tsconfig/node20": "^20.1.4",
+    "@types/json-schema": "^7.0.15",
+    "@types/node": "^22.7.4",
+    "axios": "^1.7.7",
+    "json-schema-to-ts": "^3.1.1",
+    "nodemon": "^3.1.7",
+    "swagger-typescript-api": "^13.0.22",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.2"
+  }
+}
